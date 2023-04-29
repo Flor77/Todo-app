@@ -56,7 +56,11 @@ function App() {
     setTodos((prevState) =>
       prevState.map((item) => {
         if (item.id === matchId) {
-          return { ...item, completed: !item.completed };
+          if (item.completed === true) {
+            return { ...item, completed: false };
+          } else if (item.completed === false) {
+            return { ...item, completed: true };
+          }
         }
         return item;
       })
