@@ -84,6 +84,9 @@ function App() {
     setIsOpen(false);
   };
 
+  const uncompletedTodos = todos.filter((item) => item.completed === false);
+  const completedTodos = todos.filter((item) => item.completed === true);
+
   return (
     <div className="App">
       <div className="app-container">
@@ -91,42 +94,38 @@ function App() {
           <Button onClick={openModal}>Add +</Button>
           <h2>My todos</h2>
           <div className="list-container">
-            {todos
-              .filter((item) => item.completed === false)
-              .map((item, index) => (
-                <TodoItem
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  completed={item.completed}
-                  completeTodo={completeTodo}
-                  removeTodo={removeTodo}
-                  onEdit={onEdit}
-                  editTodo={editTodo}
-                />
-              ))}
+            {uncompletedTodos.map((item) => (
+              <TodoItem
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                completed={item.completed}
+                completeTodo={completeTodo}
+                removeTodo={removeTodo}
+                onEdit={onEdit}
+                editTodo={editTodo}
+              />
+            ))}
           </div>
 
           <div className="separator"></div>
 
           <h2>Completed</h2>
           <div className="list-container">
-            {todos
-              .filter((item) => item.completed === true)
-              .map((item, index) => (
-                <TodoItem
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  completed={item.completed}
-                  completeTodo={completeTodo}
-                  removeTodo={removeTodo}
-                  onEdit={onEdit}
-                  editTodo={editTodo}
-                />
-              ))}
+            {completedTodos.map((item) => (
+              <TodoItem
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                description={item.description}
+                completed={item.completed}
+                completeTodo={completeTodo}
+                removeTodo={removeTodo}
+                onEdit={onEdit}
+                editTodo={editTodo}
+              />
+            ))}
           </div>
         </Card>
       </div>
