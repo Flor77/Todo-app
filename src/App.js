@@ -95,7 +95,7 @@ function App() {
               .filter((item) => item.completed === false)
               .map((item, index) => (
                 <TodoItem
-                  key={index}
+                  key={item.id}
                   id={item.id}
                   title={item.title}
                   description={item.description}
@@ -116,7 +116,7 @@ function App() {
               .filter((item) => item.completed === true)
               .map((item, index) => (
                 <TodoItem
-                  key={index}
+                  key={item.id}
                   id={item.id}
                   title={item.title}
                   description={item.description}
