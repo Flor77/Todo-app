@@ -1,7 +1,7 @@
-import React from "react";
+import { memo } from "react";
 import CheckBox from "./CheckBox";
 
-const TodoItem = (props) => {
+const TodoItem = memo((props) => {
   const handleCheckboxChange = () => {
     const matchId = props.id;
     props.completeTodo(matchId);
@@ -43,6 +43,6 @@ const TodoItem = (props) => {
       <p>{props.description}</p>
     </div>
   );
-};
+});
 
 export default TodoItem;
