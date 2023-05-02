@@ -77,11 +77,11 @@ function App() {
     setIsOpen(true);
   };
 
-  const editTodo = (newEditCard) => {
+  const editTodo = (taskTitle, taskDescription, matchId) => {
     setTodos((prevState) =>
       prevState.map((item) => {
-        if (item.id === newEditCard.id) {
-          return newEditCard;
+        if (item.id === matchId) {
+          return { ...item, title: taskTitle, description: taskDescription };
         } else return item;
       })
     );

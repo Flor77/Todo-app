@@ -27,7 +27,7 @@ const EditTodoForm = (props) => {
       completed: props.initialValues.completed,
     };
 
-    props.addNewEdit(newEditCard);
+    props.addNewEdit(taskTitle, taskDescription, props.initialValues.id);
   };
 
   return (
